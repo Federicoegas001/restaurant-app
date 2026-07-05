@@ -18,3 +18,7 @@ restaurant-api/restaurant-api/.env
 # ── OS ────────────────────────────────────
 .DS_Store
 Thumbs.db
+
+# ── Local dumps/screenshots ───────────────
+*.sql
+Screenshot*.png

@@ -36,6 +36,10 @@ public class UsuarioController {
         return usuarioService.obtenerPorId(id)
                 .map(u -> {
                     usuario.setId(id);
+                    if (usuario.getPassword() == null || usuario.getPassword().isBlank()) {
+                        usuario.setPassword(u.getPassword());
+                        return ResponseEntity.ok(usuarioService.actualizarSinRehash(usuario));
+                    }
                     return ResponseEntity.ok(usuarioService.guardar(usuario));
                 })
                 .orElse(ResponseEntity.notFound().build());
