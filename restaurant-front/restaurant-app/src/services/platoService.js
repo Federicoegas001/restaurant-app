@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8080/api'
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080/api'
 
 export const obtenerPlatos = () => axios.get(`${API_URL}/platos`)
 export const obtenerPlatosDisponibles = () => axios.get(`${API_URL}/platos/disponibles`)
